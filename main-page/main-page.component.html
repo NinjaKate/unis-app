@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="sidenav">
+    <a class="icon"><img src="https://www.tadviser.ru/images/a/ac/%D0%AE%D0%9D%D0%98%D0%A1_%D0%9B%D0%B0%D0%B1%D1%81_%D0%A1%D0%BE%D0%BB%D1%8E%D1%88%D0%B8%D0%BD%D0%B7.png" alt="logo"></a>
+    <a [routerLink]="['/employees']">Сотрудники</a>
+    <a [routerLink]="['/employment']">Занятость</a>
+    <a [routerLink]="['/vacancies']">Вакинсии</a>
+  </div>
+  <div class="main">
+    <table>
+      <tr>
+        <td colspan="2"><button [routerLink]="['/main']">Назад</button></td>
+        <td><p>Семёнов Н.А. <br> Должность 1</p></td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <a [routerLink]="['/employees']">Сотрудники по отделам</a>
+          <a [routerLink]="['/employment']">Занятость сотрудников</a>
+          <a [routerLink]="['/vacancies']">Вакинсии</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
