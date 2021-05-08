@@ -1,0 +1,14 @@
+<div class="container">
+  <form class="center" [formGroup]="form">
+    <div class="field">
+      <label>Логин</label>
+      <input type="email" formControlName="email">
+    </div>
+    <div class="field">
+      <label>Пароль</label>
+      <input type="password" formControlName="password">
+    </div>
+    <button class="btn" type="submit" [disabled]="form.invalid" [routerLink]="['/main']">Вход</button>
+
+  </form>
+</div>
