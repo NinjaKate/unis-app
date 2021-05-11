@@ -1,23 +1,144 @@
 <div class="container">
   <div class="sidenav">
-    <a class="icon"><img src="https://www.tadviser.ru/images/a/ac/%D0%AE%D0%9D%D0%98%D0%A1_%D0%9B%D0%B0%D0%B1%D1%81_%D0%A1%D0%BE%D0%BB%D1%8E%D1%88%D0%B8%D0%BD%D0%B7.png" alt="logo"></a>
+    <a class="icon"><img
+      src="https://www.tadviser.ru/images/a/ac/%D0%AE%D0%9D%D0%98%D0%A1_%D0%9B%D0%B0%D0%B1%D1%81_%D0%A1%D0%BE%D0%BB%D1%8E%D1%88%D0%B8%D0%BD%D0%B7.png"
+      alt="logo"></a>
     <a [routerLink]="['/employees']">Сотрудники</a>
     <a [routerLink]="['/employment']">Занятость</a>
-    <a [routerLink]="['/vacancies']">Вакинсии</a>
+    <a [routerLink]="['/vacancies']">Вакансии</a>
   </div>
   <div class="main">
+        <div  (click)="toggleCard()" class="header"><p>Семёнов Н.А. <br> Должность 1</p>
+          <div *ngIf="cardShow" class="card">
+            <mat-card>
+              <button [routerLink]="['']">Выход</button>
+            </mat-card>
+          </div>
+        </div>
     <table>
-      <tr>
-        <td colspan="2"><button [routerLink]="['/main']">Назад</button></td>
-        <td><p>Семёнов Н.А. <br> Должность 1</p></td>
-      </tr>
       <tr>
         <td colspan="3">
           <a [routerLink]="['/employees']">Сотрудники по отделам</a>
           <a [routerLink]="['/employment']">Занятость сотрудников</a>
-          <a [routerLink]="['/vacancies']">Вакинсии</a>
+          <a [routerLink]="['/vacancies']">Вакансии</a>
         </td>
       </tr>
     </table>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Пресейл">
+        <mat-form-field appearance="fill">
+          <mat-label>Направление</mat-label>
+          <mat-select>
+            <mat-option value="option1">Фильтр 1</mat-option>
+            <mat-option value="option2">Фильтр 2</mat-option>
+            <mat-option value="option3">Фильтр 3</mat-option>
+            <mat-option value="option1">Фильтр 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Этап</mat-label>
+          <mat-select>
+            <mat-option value="option1">Фильтр 5</mat-option>
+            <mat-option value="option2">Фильтр 6</mat-option>
+            <mat-option value="option3">Фильтр 7</mat-option>
+            <mat-option value="option1">Фильтр 8</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSourcePresale" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="direction">
+            <th mat-header-cell *matHeaderCellDef> Направление </th>
+            <td mat-cell *matCellDef="let element"> {{element.direction}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="client">
+            <th mat-header-cell *matHeaderCellDef> Заказчик </th>
+            <td mat-cell *matCellDef="let element"> {{element.client}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="project">
+            <th mat-header-cell *matHeaderCellDef> Проект </th>
+            <td mat-cell *matCellDef="let element"> {{element.project}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="leader">
+            <th mat-header-cell *matHeaderCellDef> Ответсвенный </th>
+            <td mat-cell *matCellDef="let element"> {{element.leader}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="stage">
+            <th mat-header-cell *matHeaderCellDef> Этап </th>
+            <td mat-cell *matCellDef="let element"> {{element.stage}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Статус </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsPresale"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsPresale;"></tr>
+        </table>
+      </mat-tab>
+      <mat-tab label="Коммерция">
+        <mat-form-field appearance="fill">
+          <mat-label>Направление</mat-label>
+          <mat-select>
+            <mat-option value="option1">Направление 1</mat-option>
+            <mat-option value="option2">Направление 2</mat-option>
+            <mat-option value="option3">Направление 3</mat-option>
+            <mat-option value="option1">Направление 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Руководитель</mat-label>
+          <mat-select>
+            <mat-option value="option1">Руководитель 1</mat-option>
+            <mat-option value="option2">Руководитель 2</mat-option>
+            <mat-option value="option3">Руководитель 3</mat-option>
+            <mat-option value="option1">Руководитель 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Статус</mat-label>
+          <mat-select>
+            <mat-option value="option1">Статус 1</mat-option>
+            <mat-option value="option2">Статус 2</mat-option>
+            <mat-option value="option3">Статус 3</mat-option>
+            <mat-option value="option1">Статус 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSourceCommerce" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Наименование </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="direction">
+            <th mat-header-cell *matHeaderCellDef> Напрвление </th>
+            <td mat-cell *matCellDef="let element"> {{element.direction}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="leader">
+            <th mat-header-cell *matHeaderCellDef> Руководитель </th>
+            <td mat-cell *matCellDef="let element"> {{element.leader}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="stage">
+            <th mat-header-cell *matHeaderCellDef> Этап </th>
+            <td mat-cell *matCellDef="let element"> {{element.stage}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Статус </th>
+            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsCommerce"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsCommerce;"></tr>
+        </table>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>

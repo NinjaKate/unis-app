@@ -10,6 +10,13 @@ import { EmployeesPageComponent } from './employees-page/employees-page.componen
 import { EmploymentPageComponent } from './employment-page/employment-page.component';
 import { VacanciesPageComponent } from './vacancies-page/vacancies-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
+import { AddNewRequestPageComponent } from './add-new-request-page/add-new-request-page.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
 
 // @ts-ignore
 @NgModule({
@@ -20,13 +27,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EmployeesPageComponent,
     EmploymentPageComponent,
     VacanciesPageComponent,
+    AddNewRequestPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

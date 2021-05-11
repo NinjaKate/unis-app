@@ -3,7 +3,7 @@
     <a class="icon"><img src="https://www.tadviser.ru/images/a/ac/%D0%AE%D0%9D%D0%98%D0%A1_%D0%9B%D0%B0%D0%B1%D1%81_%D0%A1%D0%BE%D0%BB%D1%8E%D1%88%D0%B8%D0%BD%D0%B7.png" alt="logo"></a>
     <a [routerLink]="['/employees']">Сотрудники</a>
     <a [routerLink]="['/employment']">Занятость</a>
-    <a [routerLink]="['/vacancies']">Вакинсии</a>
+    <a [routerLink]="['/vacancies']">Вакансии</a>
   </div>
   <div class="main">
     <table>
@@ -12,5 +12,102 @@
         <td>Семёнов Н.А. <br> Должность 1</td>
       </tr>
     </table>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Вакансии к закрытию">
+        <h1>Вакансии к закрытию</h1>
+        <mat-form-field appearance="fill">
+          <mat-label>Фильтр</mat-label>
+          <mat-select>
+            <mat-option value="option1">Фильтр 1</mat-option>
+            <mat-option value="option2">Фильтр 2</mat-option>
+            <mat-option value="option3">Фильтр 3</mat-option>
+            <mat-option value="option1">Фильтр 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Фильтр</mat-label>
+          <mat-select>
+            <mat-option value="option1">Фильтр 5</mat-option>
+            <mat-option value="option2">Фильтр 6</mat-option>
+            <mat-option value="option3">Фильтр 7</mat-option>
+            <mat-option value="option1">Фильтр 8</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="add" [routerLink]="['/new-request']">Создать заявку</button>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> Направление </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Заказчик </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Проект </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Ответсвенный </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-tab>
+      <mat-tab label="Освобождающиеся сотрудники">
+        <h1>Освобождающиеся сотрудники</h1>
+        <mat-form-field appearance="fill">
+          <mat-label>Фильтр</mat-label>
+          <mat-select>
+            <mat-option value="option1">Фильтр 1</mat-option>
+            <mat-option value="option2">Фильтр 2</mat-option>
+            <mat-option value="option3">Фильтр 3</mat-option>
+            <mat-option value="option1">Фильтр 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Фильтр</mat-label>
+          <mat-select>
+            <mat-option value="option1">Фильтр 1</mat-option>
+            <mat-option value="option2">Фильтр 2</mat-option>
+            <mat-option value="option3">Фильтр 3</mat-option>
+            <mat-option value="option1">Фильтр 4</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="add">Создать заявку</button>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>

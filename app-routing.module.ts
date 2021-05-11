@@ -5,13 +5,15 @@ import {MainPageComponent} from "./main-page/main-page.component";
 import {EmployeesPageComponent} from "./employees-page/employees-page.component";
 import {EmploymentPageComponent} from "./employment-page/employment-page.component";
 import {VacanciesPageComponent} from "./vacancies-page/vacancies-page.component";
+import {AddNewRequestPageComponent} from "./add-new-request-page/add-new-request-page.component";
 
 const routes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'main', component: MainPageComponent},
   {path: 'employees', component: EmployeesPageComponent},
   {path: 'employment', component: EmploymentPageComponent},
-  {path: 'vacancies', component: VacanciesPageComponent}
+  {path: 'vacancies', component: VacanciesPageComponent},
+  {path: 'new-request', component: AddNewRequestPageComponent}
 ];
 
 @NgModule({
